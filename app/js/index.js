@@ -4,7 +4,7 @@ $(function() {
     $.ajax({
       url: "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + lat + "," + long
     }).done(function(response){
-      $(".target").text(response.results[2].formatted_address.split(' ')[1]);
+      $(".target").append('<p><h3>'+response.results[2].formatted_address.split(' ')[1]+ '</h3></p>');
     });
   }
 
@@ -18,10 +18,10 @@ $(function() {
         cache.lat = position.coords.latitude
         cache.lon = position.coords.longitude
         var time_now = new Date();
-        $('.address').html('Lat or Lon has been changed :) it is: lat: ' + cache.lat + ', long: '+ cache.lon + ' at: ' + time_now );
-        $('.info').html('Updated :)');
-        $('title').html('Updated ;)');
-      } else { $('.info, title').html('Nothing :)'); }
+        $('.address').text('Lat or Lon has been changed :) it is: lat: ' + cache.lat + ', long: '+ cache.lon + ' at: ' + time_now );
+      } else {
+        $('.info, title').html('Nothing :)');
+      }
 
     });
   }, 2000);
