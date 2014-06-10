@@ -4,7 +4,7 @@ $(function() {
     $.ajax({
       url: "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + lat + "," + long
     }).done(function(response){
-      $(".target").append('<p><h3>'+response.results[2].formatted_address.split(' ')[1]+ '</h3></p>');
+      $(".target").append('<p><h3>'+response.results[2].formatted_address.split(' ')[1]+ '<strong>'+ response.results[0].formatted_address +'<strong></h3></p><br />');
     });
   }
 
